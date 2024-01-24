@@ -25,4 +25,13 @@ class CuentaTest {
         assertEquals(25000.1478, cuenta.getSaldo().doubleValue());
         assertFalse(cuenta.getSaldo().compareTo(BigDecimal.ZERO) < 0);
     }
+
+    @Test
+    void testReferenciaCuenta() {
+        Cuenta cuenta = new Cuenta("Jimmy", new BigDecimal("25000.1478"));
+        Cuenta cuenta2 = new Cuenta("Jimmy", new BigDecimal("25000.1478"));
+
+//        assertNotEquals(cuenta2, cuenta); // Son dos objetos diferentes
+        assertEquals(cuenta2, cuenta); //Haciendo override al equals, funciona
+    }
 }
